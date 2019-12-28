@@ -195,22 +195,11 @@ for(int i=0;i<list4.size();i++){
 	}
 }
 else{
-    for(int i=0;i<list5.size();i++){
-    //usname.add(list5.get(i).getCustomername());
-   //System.out.println("Without Sorting Data="+usname.get(i));
-    }
-	  //Collections.sort(list5);
-     // for(int m=0;m<list5.size();m++){
-	 // System.out.println(list5.get(m).getCustomername()+" ");
-	 
-	 Collections.sort(list5);
-
-	  for(CarModel str: list5){
-	  System.out.println(str.getCustomername()+", "+str.getCustomerid()+", "+
-           str.getCarmodel()+","+str.getCarresalevalue
-		   ());
-	   }
-	   
+    Collections.sort(list5);
+      for(CarModel str: list5){
+	  System.out.println(str.getCustomername()+", "+str.getCustomerid()+", "+str.getCarid()+", "+str.getCarmodel()+
+	  ", "+str.getCarprice()+", "+str.getCarresalevalue());
+	  }
 	}
 	}
 	
@@ -275,15 +264,15 @@ for(int i=0;i<list3.size();i++){
    System.out.print(list3.get(i).getId()+" ");
    System.out.println(list3.get(i).getName());
    Customer m2=new Customer(list3,list4);
-  // break;
+   break;
     }
 else{
-System.out.print("No id");
+System.out.println("No id");
 }
 }
 }
 } 
-public class CarUtility{
+public class CarDemo{
 public static void main(String args[]){
 try{
 System.out.println("Enter the Admin Name and Password");
@@ -297,3 +286,4 @@ Admin check=new Admin(name,password);
 	} 
 }
 }
+
