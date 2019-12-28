@@ -75,7 +75,7 @@ int myselection=scanner2.nextInt();;
   }
 
 public Customer(ArrayList<CustomerDataModel> list2,ArrayList<CarModel> list3){
-System.out.println("<Car>Enter<1 Add New Customer><2 Add car to Exitsting Customer><3 Costomer list by Id><4 SortData by Name><5 Prices>");
+System.out.println("Enter<1 Add New Customer><2 Add car to Exitsting Customer><3 Costomer list by Id><4 SortData by Name><5 Prices>");
 Scanner scanner2=new Scanner(System.in);
 int myselection=scanner2.nextInt();;
  switch (myselection) {
@@ -254,25 +254,42 @@ for(int i=0;i<list5.size();i++){
 }
 	
 
-public void printDataUsingId(ArrayList<CustomerDataModel> list3,ArrayList<CarModel> list4){
+public void printDataUsingId(ArrayList<CustomerDataModel> list3,ArrayList<CarModel> list8){
+boolean ans = list8.isEmpty(); 
+if(ans==true){
 System.out.println("Enter the User id");
-Scanner scan=new Scanner(System.in);
-int userid=scan.nextInt();
+Scanner scan1=new Scanner(System.in);
+int userid=scan1.nextInt();
 for(int i=0;i<list3.size();i++){
   int id= list3.get(i).getId();
   if(id==userid){
    System.out.print(list3.get(i).getId()+" ");
    System.out.println(list3.get(i).getName());
-   Customer m2=new Customer(list3,list4);
+   Customer m2=new Customer(list3,list8);
    break;
     }
 else{
-System.out.println("No id");
+System.out.println("Not on Index"+i);
+} } }
+else{
+System.out.println("Enter the User id");
+Scanner scan=new Scanner(System.in);
+int userid=scan.nextInt();
+for(int i=0;i<list8.size();i++){
+  int id= list8.get(i).getCustomerid();
+  if(id==userid){
+    System.out.println(list8.get(i).getCustomername()+", "+list8.get(i).getCustomerid()+", "+list8.get(i).getCarid()+", "+list8.get(i).getCarmodel()+
+	  ", "+list8.get(i).getCarprice()+", "+list8.get(i).getCarresalevalue());
+   Customer m2=new Customer(list3,list8);
+   break;
+    }
+else{
+System.out.println("Not on Index"+i);
+} } } 
 }
 }
-}
-} 
-public class CarDemo{
+
+public class CarUtility{
 public static void main(String args[]){
 try{
 System.out.println("Enter the Admin Name and Password");
