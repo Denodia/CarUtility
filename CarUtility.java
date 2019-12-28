@@ -196,17 +196,19 @@ for(int i=0;i<list4.size();i++){
 }
 else{
     for(int i=0;i<list5.size();i++){
-    usname.add(list5.get(i).getCustomername());
-   System.out.println("Without Sorting Data="+usname.get(i));
+    //usname.add(list5.get(i).getCustomername());
+   //System.out.println("Without Sorting Data="+usname.get(i));
     }
 	  //Collections.sort(list5);
      // for(int m=0;m<list5.size();m++){
 	 // System.out.println(list5.get(m).getCustomername()+" ");
 	 
-	 Collections.sort(usname);
+	 Collections.sort(list5);
 
-	  for(String str: usname){
-	  System.out.println("With Sorting Data="+str);
+	  for(CarModel str: list5){
+	  System.out.println(str.getCustomername()+", "+str.getCustomerid()+", "+
+           str.getCarmodel()+","+str.getCarresalevalue
+		   ());
 	   }
 	   
 	}
@@ -295,4 +297,3 @@ Admin check=new Admin(name,password);
 	} 
 }
 }
-
