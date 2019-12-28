@@ -69,6 +69,7 @@ int myselection=scanner2.nextInt();;
   break;
    case 5:
     getPrize(list2);
+	break;
   default:
   System.out.println("Enter Correct Input");
   }
@@ -93,6 +94,7 @@ int myselection=scanner2.nextInt();;
   break;
    case 5:
     getPrize(list2);
+	break;
   }
   } 
   
@@ -243,14 +245,14 @@ for(int i=0;i<list5.size();i++){
 	  System.out.println("Winners Ids is="+givenids.get(l));
 	 }
 	 else{
-	 System.out.println("No Winner");
+	 System.out.println("This Index Id Is Not Selected");
 	    }
 	 }
 	}
    }
 	catch(Exception e){
-	 System.out.println(e);
- }
+	System.out.print("Game Finish");
+	}
 }
 	
 
