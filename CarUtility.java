@@ -53,10 +53,10 @@ ArrayList<CarModel> carinfo=new ArrayList<CarModel>();
 public Customer(ArrayList<CustomerDataModel> list2){
 System.out.println("Enter<1 Add New Customer><2 Add car to Exitsting Customer><3 Costomer list by Id><4 SortData by Name><5 Prices><0 Exit>");
 Scanner scanner2=new Scanner(System.in);
-int myselection=scanner2.nextInt();;
+int myselection=scanner2.nextInt();
  switch (myselection) {
   case 1:
-   addCustomer(1,list);
+   addCustomer(1,list,carinfo);
     break;
   case 2:
 	addCar(1,list2,carinfo);
@@ -85,7 +85,7 @@ Scanner scanner2=new Scanner(System.in);
 int myselection=scanner2.nextInt();;
  switch (myselection) {
   case 1:
-    addCustomer(1,list);
+    addCustomer(1,list2,list3);
     break;
   case 2:
 	addCar(1,list2,list3);
@@ -108,24 +108,36 @@ int myselection=scanner2.nextInt();;
   }
   } 
   
-public void addCustomer(int number,ArrayList<CustomerDataModel> list1){
+public void addCustomer(int number,ArrayList<CustomerDataModel> list1,ArrayList<CarModel> list2){
+ArrayList<Integer> excitingids=new ArrayList<Integer>();
 int num=number;
+for(int i=0;i<list1.size();i++){
+excitingids.add(list1.get(i).getId());
+//System.out.println(excitingids.get(i));
+}
 if(num==1){
 System.out.println("Enter the Customer Id");
 Scanner scanner1=new Scanner(System.in);
 int id=scanner1.nextInt();
+
+ if(excitingids.contains(id)){
+System.out.println("User All Ready Exit");
+addCustomer(1,list1,list2);
+}
+else{
 System.out.println("Enter the Customer Name");
 Scanner scanner2=new Scanner(System.in);
 String name=scanner2.nextLine();
 
-list.add(new CustomerDataModel(id,name));
+list1.add(new CustomerDataModel(id,name));
 System.out.println("Enter 1 for Continue and 0 for quit");
 Scanner scanner3=new Scanner(System.in);
 int s=scanner3.nextInt();
-addCustomer(s,list);
+addCustomer(s,list1,list2);
+}
 }
 else{
-Customer customer1=new Customer(list);
+Customer customer1=new Customer(list1,list2);
 }
 }
  public void addCar(int number,ArrayList<CustomerDataModel> list6,ArrayList<CarModel> list7){
@@ -171,21 +183,21 @@ Customer customer1=new Customer(list);
                             Maruti price=new Maruti(carprice);
                             int resaleprice=price.resaleValue();
 
-                            carinfo.add(new CarModel(exitusername,exituserid,carid,carprice,resaleprice,carmodel));
+                            list7.add(new CarModel(exitusername,exituserid,carid,carprice,resaleprice,carmodel));
                         }
 
                         else if(carmodel.equalsIgnoreCase(car4) || carmodel.equalsIgnoreCase(car5) || carmodel.equalsIgnoreCase(car6)){
                             Hyundai price=new Hyundai(carprice);
                             int resaleprice=price.resaleValue();
-                            carinfo.add(new CarModel(exitusername,exituserid,carid,carprice,resaleprice,carmodel));
+                            list7.add(new CarModel(exitusername,exituserid,carid,carprice,resaleprice,carmodel));
                         }
                         else if(carmodel.equalsIgnoreCase(car7) || carmodel.equalsIgnoreCase(car8) || carmodel.equalsIgnoreCase(car9)){
                             Toyota price=new Toyota(carprice);
                             int resaleprice=price.resaleValue();
 
-                            carinfo.add(new CarModel(exitusername,exituserid,carid,carprice,resaleprice,carmodel));
+                            list7.add(new CarModel(exitusername,exituserid,carid,carprice,resaleprice,carmodel));
                         }
-                        break;
+                        else {System.out.println("Car Model Not Exciting Enter Right CarModel");}
                     }
                     else{
                         //System.out.println("Id is Not on "+i+" Index");
@@ -195,15 +207,15 @@ Customer customer1=new Customer(list);
                 Scanner scanner3=new Scanner(System.in);
                 int s=scanner3.nextInt();
 				if(s==1){
-                addCar(s,list6,carinfo);
+                addCar(s,list6,list7);
 				}
 				else{
-				Customer customer2=new Customer(list6,carinfo);
+				Customer customer2=new Customer(list6,list7);
 				}
             }
             else{
                 System.out.println("User Not Find...");
-				Customer customer2=new Customer(list6,carinfo);
+				Customer customer2=new Customer(list6,list7);
                 }
         }
 
@@ -256,7 +268,6 @@ for(int i=0;i<list5.size();i++){
    int randomIndex = rand.nextInt(list5.size()); 
    randomprizelist.add(prize.get(randomIndex)); 
  } 
-	System.out.println("Random Selected Ids="+randomprizelist);
 	
 	System.out.println("Please Enter 3 ids for Select Customer for price");
     for(int j=0;j<=2;j++){
@@ -309,7 +320,7 @@ for(int i=0;i<list5.size();i++){
                             System.out.print(list3.get(i).getId()+" ");
                             System.out.println(list3.get(i).getName());
                             Customer m2=new Customer(list3,list8);
-                            break;
+                            
                         }
                         else{}
                     } }
@@ -329,31 +340,39 @@ for(int i=0;i<list5.size();i++){
                         if(id==userid){
                             System.out.println(list8.get(i).getCustomername()+", "+list8.get(i).getCustomerid()+", "+list8.get(i).getCarid()+", "+list8.get(i).getCarmodel()+
                                     ", "+list8.get(i).getCarprice()+", "+list8.get(i).getCarresalevalue());
-                            Customer m2=new Customer(list3,list8);
-                            break;
+                           
+                           
                         }
-                        else{}
-                    } }
+                        else{ 
+                        	
+                        	}
+                    }
+                    Customer m2=new Customer(list3,list8);
+                    
+                }
                 else{
                     for(int i=0;i<list3.size();i++){
                         carlist1.add(list3.get(i).getId());
                     }
-                    if(carlist1.contains(userid)){
-                        for(int i=0;i<list3.size();i++){
-                            int id= list3.get(i).getId();
-                            if(id==userid){
-                                System.out.print(list3.get(i).getId()+" ");
-                                System.out.println(list3.get(i).getName());
-                                Customer m3=new Customer(list3,list8);
-                                break;
+                        if(carlist1.contains(userid)){
+                            for(int j=0;j<list3.size();j++){
+                                int id= list3.get(j).getId();
+                                if(id==userid){
+                                    System.out.print(list3.get(j).getId()+" ");
+                                    System.out.println(list3.get(j).getName());
+                                  
+                                    
+                                }
+                                else{}
                             }
-                            else{}
+                            Customer m3=new Customer(list3,list8);
                         }
-                    }
-                    else{
-                        System.out.println("User Not Found...");
-						Customer m2=new Customer(list3,list8);
-                    }
+                        else{
+                            System.out.println("User Not Found...");
+    						Customer m2=new Customer(list3,list8);
+                        }
+                    
+                   
                 }
             }
         }
@@ -370,7 +389,9 @@ Admin check=new Admin(name,password);
 }
  catch(InputMismatchException b) { 
             System.out.println("Wrong Input"); 
+             
 	} 
+
 }
 }
 
