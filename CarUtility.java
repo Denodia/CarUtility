@@ -17,33 +17,33 @@ System.out.println("Wrong UserName and Password");
 }
 }
 class Toyota {
-int price;
-public Toyota(int price){
+double price;
+public Toyota(double price){
 this.price=price;
 }
-public int resaleValue(){
-int resaleprice=(80*price)/100;
+public double resaleValue(){
+double resaleprice=(80*price)/100;
 return resaleprice;
 }
 }
 class Maruti {
-int price;
-public Maruti(int price){
+double price;
+public Maruti(double price){
 this.price=price;
 }
-public int resaleValue(){
+public double resaleValue(){
 
-int resaleprice=(60*price)/100;
+double resaleprice=(60*price)/100;
 return resaleprice;
 }
 }
 class Hyundai{
-int price;
-public Hyundai(int price){
+double price;
+public Hyundai(double price){
 this.price=price;
 }
-public int resaleValue(){
-int resaleprice=(40*price)/100;
+public double resaleValue(){
+double resaleprice=(40*price)/100;
 return resaleprice;
 }
 }
@@ -51,7 +51,7 @@ class Customer{
 ArrayList<CustomerDataModel> list=new ArrayList<CustomerDataModel>();
 ArrayList<CarModel> carinfo=new ArrayList<CarModel>();
 public Customer(ArrayList<CustomerDataModel> list2){
-System.out.println("Enter<1 Add New Customer><2 Add car to Exitsting Customer><3 Costomer list by Id><4 SortData by Name><5 Prices><0 Exit>");
+System.out.println("Enter<1 Add New Customer><2 Add car to Exitsting Customer><3 Costomer list by Id><4 SortData by Name><5 Prizes><0 Exit>");
 Scanner scanner2=new Scanner(System.in);
 int myselection=scanner2.nextInt();
  switch (myselection) {
@@ -80,7 +80,7 @@ int myselection=scanner2.nextInt();
   }
 
 public Customer(ArrayList<CustomerDataModel> list2,ArrayList<CarModel> list3){
-System.out.println("Enter<1 Add New Customer><2 Add car to Exitsting Customer><3 Costomer list by Id><4 SortData by Name><5 Prices><0 Exit>");
+System.out.println("Enter<1 Add New Customer><2 Add car to Exitsting Customer><3 Costomer list by Id><4 SortData by Name><5 Prizes><0 Exit>");
 Scanner scanner2=new Scanner(System.in);
 int myselection=scanner2.nextInt();;
  switch (myselection) {
@@ -169,7 +169,7 @@ Customer customer1=new Customer(list1,list2);
 
                         System.out.println("Enter the Customer Car price");
                         Scanner scanner5=new Scanner(System.in);
-                        int carprice=scanner5.nextInt();
+                        double carprice=scanner5.nextInt();
                         String car1="Maruti 800";
                         String car2="Maruti Suzuki Ertiga";
                         String car3="Maruti Suzuki Swift";
@@ -181,19 +181,19 @@ Customer customer1=new Customer(list1,list2);
                         String car9="Toyota Land Cruiser";
                         if(carmodel.equalsIgnoreCase(car1) || carmodel.equalsIgnoreCase(car2) || carmodel.equalsIgnoreCase(car3)){
                             Maruti price=new Maruti(carprice);
-                            int resaleprice=price.resaleValue();
+                            double resaleprice=price.resaleValue();
 
                             list7.add(new CarModel(exitusername,exituserid,carid,carprice,resaleprice,carmodel));
                         }
 
                         else if(carmodel.equalsIgnoreCase(car4) || carmodel.equalsIgnoreCase(car5) || carmodel.equalsIgnoreCase(car6)){
                             Hyundai price=new Hyundai(carprice);
-                            int resaleprice=price.resaleValue();
+                            double resaleprice=price.resaleValue();
                             list7.add(new CarModel(exitusername,exituserid,carid,carprice,resaleprice,carmodel));
                         }
                         else if(carmodel.equalsIgnoreCase(car7) || carmodel.equalsIgnoreCase(car8) || carmodel.equalsIgnoreCase(car9)){
                             Toyota price=new Toyota(carprice);
-                            int resaleprice=price.resaleValue();
+                            double resaleprice=price.resaleValue();
 
                             list7.add(new CarModel(exitusername,exituserid,carid,carprice,resaleprice,carmodel));
                         }
@@ -389,9 +389,6 @@ Admin check=new Admin(name,password);
 }
  catch(InputMismatchException b) { 
             System.out.println("Wrong Input"); 
-             
-	} 
-
+             } 
 }
 }
-
