@@ -51,7 +51,7 @@ class Customer{
 ArrayList<CustomerDataModel> list=new ArrayList<CustomerDataModel>();
 ArrayList<CarModel> carinfo=new ArrayList<CarModel>();
 public Customer(ArrayList<CustomerDataModel> list2){
-System.out.println("Enter<1 Add New Customer><2 Add car to Exitsting Customer><3 Costomer list by Id><4 SortData by Name><5 Prizes><0 Exit>");
+System.out.println("Enter<1 Add New Customer><2 Add car to Existing Customer><3 Costomer list by Id><4 SortData by Name><5 Prizes><0 Exit>");
 Scanner scanner2=new Scanner(System.in);
 int myselection=scanner2.nextInt();
  switch (myselection) {
@@ -80,7 +80,7 @@ int myselection=scanner2.nextInt();
   }
 
 public Customer(ArrayList<CustomerDataModel> list2,ArrayList<CarModel> list3){
-System.out.println("Enter<1 Add New Customer><2 Add car to Exitsting Customer><3 Costomer list by Id><4 SortData by Name><5 Prizes><0 Exit>");
+System.out.println("Enter<1 Add New Customer><2 Add car to Existing Customer><3 Costomer list by Id><4 SortData by Name><5 Prizes><0 Exit>");
 Scanner scanner2=new Scanner(System.in);
 int myselection=scanner2.nextInt();;
  switch (myselection) {
@@ -197,7 +197,7 @@ Customer customer1=new Customer(list1,list2);
 
                             list7.add(new CarModel(exitusername,exituserid,carid,carprice,resaleprice,carmodel));
                         }
-                        else {System.out.println("Car Model Not Exciting Enter Right CarModel");}
+                        else {System.out.println("Car Model Not Exists Enter Right CarModel");}
                     }
                     else{
                         //System.out.println("Id is Not on "+i+" Index");
@@ -269,7 +269,7 @@ for(int i=0;i<list5.size();i++){
    randomprizelist.add(prize.get(randomIndex)); 
  } 
 	
-	System.out.println("Please Enter 3 ids for Select Customer for price");
+	System.out.println("Please Enter 3 ids to Select Customer for prize");
     for(int j=0;j<=2;j++){
 	
 	Scanner randomscanner=new Scanner(System.in);
@@ -389,6 +389,8 @@ Admin check=new Admin(name,password);
 }
  catch(InputMismatchException b) { 
             System.out.println("Wrong Input"); 
-             } 
+             
+	} 
+
 }
 }
