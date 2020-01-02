@@ -2,8 +2,8 @@ public class CarModel implements Comparable<CarModel> {
     private String customername;
     private int customerid;
     private int carid;
-    private int carprice;
-    private int carresalevalue;
+    private double carprice;
+    private double carresalevalue;
     private String carmodel;
 
     public String getCustomername() {
@@ -18,11 +18,11 @@ public class CarModel implements Comparable<CarModel> {
         return carid;
     }
 
-    public int getCarprice() {
+    public double getCarprice() {
         return carprice;
     }
 
-    public int getCarresalevalue() {
+    public double getCarresalevalue() {
         return carresalevalue;
     }
 
@@ -42,11 +42,11 @@ public class CarModel implements Comparable<CarModel> {
         this.carid = carid;
     }
 
-    public void setCarprice(int carprice) {
+    public void setCarprice(double carprice) {
         this.carprice = carprice;
     }
 
-    public void setCarresalevalue(int carresalevalue) {
+    public void setCarresalevalue(double carresalevalue) {
         this.carresalevalue = carresalevalue;
     }
 
@@ -54,7 +54,7 @@ public class CarModel implements Comparable<CarModel> {
         this.carmodel = carmodel;
     }
 
-    public CarModel(String customername, int customerid, int carid, int carprice, int carresalevalue, String carmodel) {
+    public CarModel(String customername, int customerid, int carid, double carprice, double carresalevalue, String carmodel) {
         this.customername = customername;
         this.customerid = customerid;
         this.carid = carid;
