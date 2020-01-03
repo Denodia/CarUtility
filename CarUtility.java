@@ -251,8 +251,7 @@ ArrayList<Integer> prize=new ArrayList<Integer>();
 ArrayList<Integer> randomprizelist=new ArrayList<Integer>();
 ArrayList<Integer> givenids=new ArrayList<Integer>();
 ArrayList<Integer> selectedids=new ArrayList<Integer>();
-
-
+try{
 for(int i=0;i<list5.size();i++){
    prize.add(list5.get(i).getId());
  }
@@ -261,42 +260,39 @@ for(int i=0;i<list5.size();i++){
    while (iterator.hasNext()) 
    System.out.print(iterator.next() + " "); 
    System.out.println();
-	
- Random rand = new Random(); 
- int totalItems=6;
- for (int i =0;i<totalItems;i++) {  
+   Random rand = new Random(); 
+   int totalItems=6;
+   for (int i =0;i<totalItems;i++) {  
    int randomIndex = rand.nextInt(list5.size()); 
    randomprizelist.add(prize.get(randomIndex)); 
  } 
-	
-	System.out.println("Please Enter 3 ids to Select Customer for prize");
+ System.out.println("Please Enter 3 ids for Select Customer for price");
     for(int j=0;j<=2;j++){
-	
 	Scanner randomscanner=new Scanner(System.in);
 	int takeid=randomscanner.nextInt();
 	givenids.add(takeid);
 	}
-	try{
-	 for(int k=0;k<=givenids.size();k++){
-	 for(int l=0;l<=randomprizelist.size();l++){
-	 int winids=givenids.get(l);
+	for(int k=0;k<givenids.size();k++){
+	 for(int l=0;l<randomprizelist.size();l++){
+	 int winids=givenids.get(k);
 	 if(randomprizelist.contains(winids)){
-	  System.out.println("Winners Ids is="+givenids.get(l));
+	  System.out.println("Winners Ids is="+givenids.get(k));
+	  break;
 	 }
-	 else{
-	 System.out.println("Id "+givenids.get(l) +" Is Not Selected");
-	    }
+       else{
+	System.out.println("Id "+givenids.get(k) +" Is Not Selected");
+         break;
+       }
 	 }
-	}
-   }
-	catch(Exception e){
-	System.out.println("Game Finish");
+	 }
 	Customer c5=new Customer(list5,list6);
+	}
+	catch(Exception e){
+	System.out.println(e.toString());
 	}
 }
 	
-
-       public void printDataUsingId(ArrayList<CustomerDataModel> list3,ArrayList<CarModel> list8){
+	public void printDataUsingId(ArrayList<CustomerDataModel> list3,ArrayList<CarModel> list8){
             boolean ans = list8.isEmpty();
             ArrayList<Integer> carlist1=new ArrayList<Integer>();
             if(ans==true){
