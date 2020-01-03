@@ -316,17 +316,16 @@ for(int i=0;i<list5.size();i++){
                             System.out.print(list3.get(i).getId()+" ");
                             System.out.println(list3.get(i).getName());
                             Customer m2=new Customer(list3,list8);
-                            
-                        }
+                             }
                         else{}
-                    } }
+                    } 
+		}
                 else{
                     System.out.println("Id Not Found..");
-					Customer m2=new Customer(list3,list8);
+	            Customer m2=new Customer(list3,list8);
                 }
             }
-
-            else{
+              else{
                 System.out.println("Enter the User id");
                 Scanner scan=new Scanner(System.in);
                 int userid=scan.nextInt();
@@ -336,16 +335,11 @@ for(int i=0;i<list5.size();i++){
                         if(id==userid){
                             System.out.println(list8.get(i).getCustomername()+", "+list8.get(i).getCustomerid()+", "+list8.get(i).getCarid()+", "+list8.get(i).getCarmodel()+
                                     ", "+list8.get(i).getCarprice()+", "+list8.get(i).getCarresalevalue());
-                           
-                           
-                        }
-                        else{ 
-                        	
-                        	}
+                             }
+                        else{}
                     }
                     Customer m2=new Customer(list3,list8);
-                    
-                }
+		}
                 else{
                     for(int i=0;i<list3.size();i++){
                         carlist1.add(list3.get(i).getId());
@@ -356,20 +350,16 @@ for(int i=0;i<list5.size();i++){
                                 if(id==userid){
                                     System.out.print(list3.get(j).getId()+" ");
                                     System.out.println(list3.get(j).getName());
-                                  
-                                    
-                                }
+                                  }
                                 else{}
                             }
                             Customer m3=new Customer(list3,list8);
                         }
                         else{
                             System.out.println("User Not Found...");
-    						Customer m2=new Customer(list3,list8);
-                        }
-                    
-                   
-                }
+    			    Customer m2=new Customer(list3,list8);
+                      }
+                 }
             }
         }
     }
@@ -387,6 +377,5 @@ Admin check=new Admin(name,password);
             System.out.println("Wrong Input"); 
              
 	} 
-
-}
+   }
 }
